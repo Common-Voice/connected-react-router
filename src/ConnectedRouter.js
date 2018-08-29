@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { HashRouter as Router } from 'react-router'
+import { Router as BaseRouter } from 'react-router'
 import { onLocationChanged } from './actions'
 
 const createConnectedRouter = (structure) => {
@@ -68,7 +68,7 @@ const createConnectedRouter = (structure) => {
 
     render() {
       const { history, children } = this.props
-      
+      const Router = this.props.router || BaseRouter;
 
       return (
         <Router history={history}>
